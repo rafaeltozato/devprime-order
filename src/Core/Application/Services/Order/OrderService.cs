@@ -9,7 +9,10 @@ public class OrderService : ApplicationService<IOrderState>, IOrderService
     {
         Dp.Pipeline(Execute: () =>
         {
+            Dp.Observability.Log("Before ToDomain");
+        
             var order = command.ToDomain();
+            Dp.Observability.Log("After ToDomain");
             Dp.Attach(order);
             order.Add();
         });
