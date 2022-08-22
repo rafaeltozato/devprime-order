@@ -14,4 +14,17 @@ public class Item : Entity
     {
         Amount += amount;
     }
+
+    public Item(Guid id, string description, int amount, string sKU, double price)
+    {
+        ID = (id == Guid.Empty ? Guid.NewGuid() : id);
+        Description = description;
+        Amount = amount;
+        SKU = sKU;
+        Price = price;
+    }
+
+    public Item()
+    {
+    }
 }
